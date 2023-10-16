@@ -6,6 +6,7 @@ PIR_PIN = 14  # PIR motion sensor pin
 RED_PIN = 21   # Red LED pin
 GREEN_PIN = 20  # Green LED pin
 BLUE_PIN = 16  # Blue LED pin
+LASER_PIN = 4 # laser diode 650nm Red
 
 # Initialize GPIO
 GPIO.setwarnings(False)
@@ -14,10 +15,11 @@ GPIO.setup(PIR_PIN, GPIO.IN)
 GPIO.setup(RED_PIN, GPIO.OUT)
 GPIO.setup(GREEN_PIN, GPIO.OUT)
 GPIO.setup(BLUE_PIN, GPIO.OUT)
+GPIO.setup(LASER_PIN, GPIO.OUT)
 
 # Function to gradually change the RGB color
 def fade_color():
-    delay_time = 0.01  # Delay time for color fading
+    delay_time = 0.02  # Delay time for color fading
     red_value = 255
     green_value = 0
     blue_value = 0
@@ -46,16 +48,23 @@ def set_color(red, green, blue):
     GPIO.output(GREEN_PIN, green)
     GPIO.output(BLUE_PIN, blue)
 
+def laser():
+   GPIO.output(LASER_PIN, GPIO.HIGH)
+   time.sleep(10)
+   GPIO.output(LASER_PIN,GPIO.LOW)
+   time.sleep(1)
+    
 try:
     while True:
         if GPIO.input(PIR_PIN):  # If motion is detected
-            print("Motion detected! Changing RGB color.")
+            # print("Motion detected! Changing RGB color.")
             set_color(255, 0, 0)
             time.sleep(10)
             fade_color()
             time.sleep(2)
             set_color(255, 255, 255)
-            time.sleep(10)
+            laser()
+            # time.sleep(10)
         else:
             # print("No motion. LEDs remain off.")
             set_color(0, 0, 0)
