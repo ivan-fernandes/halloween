@@ -34,8 +34,7 @@ Make sure you have the necessary Python libraries installed, including RPi.GPIO.
    ```bash
    python3 halloween.py
 
-
-   ## Running the Script on Startup
+## Running the Script on Startup
 
 You can configure your Raspberry Pi to start this script automatically on system boot using `systemd`. This ensures that your LED control script runs in the background whenever your Raspberry Pi starts up.
 
@@ -49,16 +48,17 @@ Here are the steps to set up automatic startup:
    sudo nano /etc/systemd/system/halloween.service
 
 2. **Add the following content to your halloween.service file**
-[Unit]
-Description=Halloween script to control LED
+   ```bash
+   [Unit]
+   Description=Halloween script to control LED
 
-[Service]
-ExecStart=/usr/bin/python3 /path_to_your_script/halloween.py
+   [Service]
+   ExecStart=/usr/bin/python3 /path_to_your_script/halloween.py
 
-[Install]
-WantedBy=multi-user.target
+   [Install]
+   WantedBy=multi-user.target
 
-2.1. Make sure you replace the path of the python script in the ExecStart
+Make sure you replace the path of the python script in the ExecStart section
 
 3. **Enable the service on start up**
 sudo systemctl enable halloween.service
