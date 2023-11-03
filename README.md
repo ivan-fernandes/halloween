@@ -67,3 +67,12 @@ sudo systemctl enable halloween.service
 - sudo systemctl start halloween.service
 - sudo systemctl stop halloween.service
 
+
+5. **TO DOs for improving the performance and learning extra skills**
+- Play sound on a buzzer to scare people
+- Connect it to Alexa to play a spooky sound
+- Use a IR transmitter and receiver
+- ...
+
+
+- Use a 
