@@ -73,6 +73,3 @@ sudo systemctl enable halloween.service
 - Connect it to Alexa to play a spooky sound
 - Use a IR transmitter and receiver
 - ...
-
-
-- Use a 
