@@ -67,6 +67,10 @@ sudo systemctl enable halloween.service
 - sudo systemctl start halloween.service
 - sudo systemctl stop halloween.service
 
+5. **To disable or enable the service (so that it wouldn't start automatically on boot)**:
+- sudo systemctl disable halloween.service
+- sudo systemctl enable halloween.service
+
 
 5. **TO DOs for improving the performance and learning extra skills**
 - Play sound on a buzzer to scare people
