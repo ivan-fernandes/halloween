@@ -83,7 +83,7 @@ def laser():
 try:
     while True:
         h = datetime.now()
-        if GPIO.input(PIR_PIN) or ((h.hour> 17 and h.hour <2) and (h.minute in [0,30]) and (h.second>0 and h.second<30)):  # If motion is detected
+        if GPIO.input(PIR_PIN) or ((h.hour> 17 and h.hour <5) and (h.minute in [0,9,21,30,42,51]) and (h.second>0 and h.second<30)):  # If motion is detected
             # print("Motion detected! Changing RGB color.")
             set_color(255, 0, 0)
             time.sleep(5)
